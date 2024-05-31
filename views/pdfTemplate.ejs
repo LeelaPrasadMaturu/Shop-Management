@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transactions PDF</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li.transaction {
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        li.transaction span {
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .green {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Transactions</h1>
+    <ul>
+        <% transactions.forEach((transaction, index) => { %>
+            <li class="transaction">
+                <span><%= index + 1 %>. </span>
+                <%= transaction.type === 'bill' ? 'Bill' : 'Receipt' %> No: <%= transaction.no %> | Amount: <span class="<%= transaction.type === 'bill' ? 'red' : 'green' %>"><%= transaction.amount %></span> | Date: <%= transaction.date.toDateString() %> | Net Balance: <%= transaction.netBalance %>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
