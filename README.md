@@ -87,7 +87,7 @@ simple-shop-management-web-app/
 ├── package.json           # NPM package file
 ├── README.md              # Readme file
 ## 🧰 Technologies Used
-
+```
 **Frontend:**
 
 - HTML
